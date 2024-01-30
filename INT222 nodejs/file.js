@@ -99,12 +99,13 @@
 // let result="2"*"2"+"5";
 // console.log(result);//45
 
-//logical operators
-let p=true;
-let q= false;
-console.log(p&&q); //logical AND: false
-console.log(p||q);//logical OR : true
-console.log(!p);//logical NOT: false
+// //logical operators
+// let p=true;
+// let q= false;
+// console.log(p&&q); //logical AND: false
+// console.log(p||q);//logical OR : true
+// console.log(!p);//logical NOT: false
+
 
 ////for loop 
 // for(let i=0; i<5;i++){
@@ -230,3 +231,68 @@ console.log(!p);//logical NOT: false
 // finally{//code runs regardless of error 
 //     console.log("Cleanup code prints");
 // }
+
+//TIMERS -mechanisms through which you can execute a code after a certain delay
+//Types Of Timers
+//1. setTimeout function- executes the code after a certain delay only once, acts as asynchronous
+// const delayedFunction=()=>{
+//     console.log('Delayed function executed!');
+// };
+// setTimeout(delayedFunction,2000); //executes after 2 sec
+
+//2.setInterval- executes the code after a certain interval of time again and again
+// const repeatedFunction=()=> {
+//     console.log('Repeated function executed!');
+// };
+// const intervalId= setInterval(repeatedFunction,1000);
+
+//function to be executed at intervals
+// function repeatedFunction(){
+//     console.log('executing repeated function');
+// }
+// //set an interval (execute repeatedFunction every 1000 millisecond)
+// const intervalId= setInterval(repeatedFunction,1000);
+// //after sometime, stop the interval
+// setTimeout() => {
+//     clearInterval(intervalId);//stop the interval
+//     console.log('Interval stopped.');
+
+// },5000);
+
+// synchronous callback function-executes randomly
+// function parentFunction(name, callback){
+//     callback();
+//     console.log("Hey"+name);
+// }
+// function randomFunction(){
+//     console.log("Hey I am callbackfunction");
+// }
+// parentFunction("Random String",randomFunction);
+
+// asynchronouus callback function-executes at later time/ delay, later function can execute first
+// function parentFunction(name, callback){
+//     setTimeout(callback,1000);
+//     console.log("Hey"+name);
+// }
+// function randomFunction(){
+//     console.log("Hey I am callbackfunction");
+// }
+// parentFunction("Random String",randomFunction);
+
+////if same function is declared anonymously
+// function parentFunction(name, callback){
+//     setTimeout(callback,1000);
+//     console.log("Hey"+name);
+// }
+// parentFunction("Random String", function(){
+//     console.log("Hey I am callbackfunction");
+// });
+
+//using arrow funcyion to 
+const parentFunction=(name, callback)=>(
+    setTimeout(callback,1000),console.log("Hey"+name));
+}
+parentFunction("Random String",()=>(
+    console.log("Hey I am callbackfunction");
+);
+
